@@ -4,7 +4,6 @@ Connect-VIServer -Server $vcNames
 $vmNames = (Get-Cluster -Name Cluster01 | Get-VM) -join '|'
 Get-View -ViewType VirtualMachine -Filter @{'Name'=$vmNames} |
 Select Name,
-
     @{N='vCenter';E={([uri]$_.Client.ServiceUrl).Host}},
     @{N="HW Version";E={$_.Config.version}},
     @{N='VMware Toos Status';E={$_.Guest.ToolsStatus}},
