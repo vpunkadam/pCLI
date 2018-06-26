@@ -13,3 +13,5 @@ Group-Object -Property vCenter | %{
     $_.Group |
     Export-Csv -Path ".\$($_.Name)-$(Get-Date -Format 'ddMMyyyy-HHmm').csv" -NoTypeInformation -UseCulture
 }
+
+#### Set-Vm -VM (Get-VM -Name [VM-NAME]) -Version v[HW-VERSION]
